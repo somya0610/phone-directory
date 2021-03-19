@@ -1,35 +1,90 @@
-import React from "react";
+import React, {Component} from "react";
 import Header from "./Header"
+import './App.css';
 
-function App() {
-  // let x = 1;
-  // let y = 2;
-  return (
-    <div>
-      {/* <div className="header">
-        Phone Directory
-      </div> */}
-      <Header />
-      <button> Add </button>
+class App extends Component {
+  render() {
+    let subscribers = [
+      {
+        id: 1,
+        name: "Shilpa",
+        phone: 88888888
+      },
+      {
+        id: 2,
+        name: "Srishti",
+        phone: 77777777
+      }
+    ];
+    return (
       <div>
-        <span> Name </span><br />
-        <span> Phone </span>
+        <Header />
+        <div className="component-body-container">
+          <button className="custom-btn add-btn">Add</button>
+  
+          <div className="grid-container heading-container">
+            <span className="grid-item name-heading">Name</span>
+            <span className="grid-item phone-heading">Phone</span>
+          </div>
+  
+          {/* <div className="grid-container">
+            <span className="grid-item">Shilpa</span>
+            <span className="grid-item">88888888</span>
+          </div>
+  
+          <div className="grid-container">
+            <span className="grid-item">Srishti</span>
+            <span className="grid-item">77777777</span>
+          </div> */}
+
+          {subscribers.map(sub => {
+            return <div key={sub.id} className="grid-container">
+            <span className="grid-item">{sub.name}</span>
+            <span className="grid-item">{sub.phone}</span>
+          </div>
+          })}
+        </div>
       </div>
-      {/* <label htmlFor="name">Name: </label>
-      <input id="name" type="text" placeholder="Type Here" defaultValue="Somya" />
-      <input id="name" type="text" placeholder="Type Here" defaultValue={x+y} /> */}
-    </div>
-
-    // <div id="module">
-    //   <p>ReactJS</p>
-    // </div>
-
-    // React.createElement("div", {id:"module"},
-    //   React.createElement("p", null, "ReactJS")
-    // )
-
-
-  );
+    );
+  }
 }
+
+// function App() {
+//   // let x = 1;
+//   // let y = 2;
+
+
+
+//   // return (
+//   //   <div>
+//   //     {/* <div className="header">
+//   //       Phone Directory
+//   //     </div> */}
+//   //     <Header />
+//   //     <div className="component-body-container">
+//   //       <button className="custom-btn add-btn">Add</button>
+
+//   //       <div className="grid-container heading-container">
+//   //         <span className="grid-item name-heading">Name</span>
+//   //         <span className="grid-item phone-heading">Phone</span>
+//   //       </div>
+
+//   //     </div>
+//   //     {/* <label htmlFor="name">Name: </label>
+//   //     <input id="name" type="text" placeholder="Type Here" defaultValue="Somya" />
+//   //     <input id="name" type="text" placeholder="Type Here" defaultValue={x+y} /> */}
+//   //   </div>
+
+//   //   // <div id="module">
+//   //   //   <p>ReactJS</p>
+//   //   // </div>
+
+//   //   // React.createElement("div", {id:"module"},
+//   //   //   React.createElement("p", null, "ReactJS")
+//   //   // )
+
+
+//   // );
+// }
 
 export default App;
