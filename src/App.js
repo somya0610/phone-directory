@@ -8,19 +8,27 @@ class App extends Component {
     alert(message);
   }
 
+  constructor() {
+    super();
+    this.state = {
+      subscribersListToShow: []
+    }
+  }
+
   render() {
-    let subscribers = [
-      {
-        id: 1,
-        name: "Shilpa",
-        phone: 88888888
-      },
-      {
-        id: 2,
-        name: "Srishti",
-        phone: 77777777
-      }
-    ];
+    // let subscribers = [
+    //   {
+    //     id: 1,
+    //     name: "Shilpa",
+    //     phone: 88888888
+    //   },
+    //   {
+    //     id: 2,
+    //     name: "Srishti",
+    //     phone: 77777777
+    //   }
+    // ];
+
     return (
       <div>
         <Header heading="Phone Directory" />
@@ -42,7 +50,17 @@ class App extends Component {
             <span className="grid-item">77777777</span>
           </div> */}
 
-          {subscribers.map(sub => {
+          {/* {subscribers.map(sub => {
+            return <div key={sub.id} className="grid-container">
+              <span className="grid-item">{sub.name}</span>
+              <span className="grid-item">{sub.phone}</span>
+              <span className="grid-item action-btn-container">
+                <button className="custom-btn delete-btn" onClick={this.deleteHandler.bind(this, "Delete Clicked")}>Delete</button>
+              </span>
+            </div>
+          })} */}
+
+          {this.state.subscribersListToShow.map(sub => {
             return <div key={sub.id} className="grid-container">
               <span className="grid-item">{sub.name}</span>
               <span className="grid-item">{sub.phone}</span>
