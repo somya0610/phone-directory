@@ -1,21 +1,37 @@
 import React, { Component } from "react";
-import Header from "./Header"
-import './App.css';
+import Header from "./common/Header"
+import './ShowSubscribers.css';
+import './common/common.css';
 
-class App extends Component {
+class ShowSubscribers extends Component {
 
   deleteHandler(message) {
     alert(message);
   }
 
-  constructor() {
-    super();
-    this.state = {
-      subscribersListToShow: []
-    }
-  }
+//   constructor() {
+//     super();
+//     this.state = {
+//       subscribersListToShow: []
+//     }
+//     console.log("Constructor called");
+//   }
+
+//   componentDidMount() {
+//     let newSubscriber = {
+//         id: 1,
+//         name: 'Shilpa',
+//         phone: '9999999999'
+//     }
+//     let subscriberList = this.state.subscribersListToShow;
+//     subscriberList.push(newSubscriber);
+//     this.setState({subscribersListToShow: subscriberList});
+//     console.log("componentDidMount called");
+//     console.log("State", this.state);
+// }
 
   render() {
+    console.log("Render called");
     // let subscribers = [
     //   {
     //     id: 1,
@@ -60,7 +76,16 @@ class App extends Component {
             </div>
           })} */}
 
-          {this.state.subscribersListToShow.map(sub => {
+          {/* {this.state.subscribersListToShow.map(sub => {
+            return <div key={sub.id} className="grid-container">
+              <span className="grid-item">{sub.name}</span>
+              <span className="grid-item">{sub.phone}</span>
+              <span className="grid-item action-btn-container">
+                <button className="custom-btn delete-btn" onClick={this.deleteHandler.bind(this, "Delete Clicked")}>Delete</button>
+              </span>
+            </div>
+          })} */}
+          {this.props.subscriberList.map(sub => {
             return <div key={sub.id} className="grid-container">
               <span className="grid-item">{sub.name}</span>
               <span className="grid-item">{sub.phone}</span>
@@ -113,4 +138,4 @@ class App extends Component {
 //   // );
 // }
 
-export default App;
+export default ShowSubscribers;
