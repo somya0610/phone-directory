@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './Header.css';
 
-const Header = function () {
+const Header = function (props1) {
     const headerStyle = {textAlign:"center", padding:20, background:'#000', color:'#fff', textTransform:"uppercase"};
     return (
         <div className="header">
-            Phone Directory
+            {props1.heading}
         </div>
 
         // <div style={{textAlign:"center", padding:20, background:'#000', color:'#fff', textTransform:"uppercase"}}>
@@ -22,8 +22,8 @@ const Header = function () {
 //     render() {
 //         return (
 //             <div className="header">
-//              Phone Directory
-//          </div>
+//                 {this.props.heading}
+//             </div>
 //         )
 //     }
 // }
